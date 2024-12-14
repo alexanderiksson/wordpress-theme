@@ -1,0 +1,369 @@
+:root {
+  /* Colors */
+  --accent: #fe1b14;
+
+  --success: #46aa69;
+  --danger: #d41811;
+  --info: #1496ff;
+
+  --base: #fdfdfd;
+  --base-2: #eaeaea;
+  --base-3: #252525;
+  --base-4: #161616;
+
+  --txt-light: #ffffff;
+  --txt-black: #232323;
+  --txt-base: #484848;
+  --txt-base-2: #bebebe;
+
+  /* Fonts */
+  --font: "Ubuntu";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: var(--font);
+  background-color: var(--base);
+  color: var(--txt-base);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Background classes */
+.base {
+  background-color: var(--base);
+  color: var(--txt-base);
+}
+
+.base-2 {
+  background-color: var(--base-2);
+  color: var(--txt-base);
+}
+
+.base-3 {
+  background-color: var(--base-3);
+  color: var(--txt-base-2);
+}
+
+.base-4 {
+  background-color: var(--base-4);
+  color: var(--txt-base-2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--txt-black);
+}
+
+.base-3 h1,
+.base-3 h2,
+.base-3 h3,
+.base-3 h4,
+.base-3 h5,
+.base-3 h6,
+.base-4 h1,
+.base-4 h2,
+.base-4 h3,
+.base-4 h4,
+.base-4 h5,
+.base-4 h6 {
+  color: var(--txt-light);
+}
+
+main {
+  flex: 1;
+  margin-top: 80px;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.content {
+  max-width: 1280px;
+  margin: auto;
+}
+
+/* Buttons */
+.button-1 {
+  display: inline-block;
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 0.7rem 0.75rem;
+  border-radius: 0.25rem;
+  color: var(--txt-light);
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.button-1:hover {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+/* Titles */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1rem 0 2rem 0;
+  color: var(--txt-black);
+}
+
+.post-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--txt-black);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--txt-black);
+  margin-bottom: 1rem;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  color: var(--txt-black);
+}
+
+.breadcrumbs span.breadcrumb_last {
+  color: var(--txt-base);
+}
+
+/* Header */
+header {
+  min-height: 80px;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+header nav li {
+  display: inline;
+}
+
+header nav li.current_page_item > a,
+header nav li.current-menu-item > a {
+  color: var(--accent);
+}
+
+header nav li a:hover,
+#dropdown nav li a:hover,
+footer li a:hover {
+  color: var(--accent);
+}
+
+header nav li.nav-button a {
+  display: inline-block;
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.25rem;
+  color: var(--txt-light);
+  font-weight: 400;
+  transition: 0.2s;
+}
+
+header nav li.nav-button a:hover {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+header nav li.menu-item-has-children {
+  position: relative;
+}
+
+header nav li.menu-item-has-children:hover ul.sub-menu {
+  display: flex;
+}
+
+header ul.sub-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1rem;
+  position: absolute;
+  background-color: var(--base);
+  top: calc(100% + 16px);
+  left: 50%;
+  list-style: none;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  padding: 2rem 1.5rem;
+  min-width: 200px;
+  transform: translateX(-50%);
+  border-radius: 0.25rem;
+}
+
+header ul.sub-menu::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  border-left: 10px solid rgba(0, 0, 0, 0);
+  border-right: 10px solid rgba(0, 0, 0, 0);
+  border-bottom: 10px solid var(--base);
+}
+
+header nav li.menu-item-has-children:hover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: transparent;
+}
+
+/* Dropdown */
+#dropdown {
+  position: fixed;
+  height: 100vh;
+  z-index: 20;
+  background-color: var(--base-4);
+  color: var(--txt-base-2);
+  padding: 2rem 1rem;
+  width: 100%;
+  right: -100%;
+  transition: right 0.3s ease;
+}
+
+#dropdown.open {
+  right: 0;
+}
+
+#dropdown nav li {
+  font-size: 1.25rem;
+  padding: 1.5rem 0;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+#dropdown nav li.current-menu-item > a,
+#dropdown nav li.current-menu-item .menu-item-wrapper a {
+  color: var(--accent);
+}
+
+#dropdown nav li .menu-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#dropdown nav li.menu-item-has-children.active .sub-menu {
+  display: block;
+}
+
+#dropdown ul.sub-menu {
+  display: none;
+  position: relative;
+  margin-left: 1rem;
+  padding-top: 1rem;
+}
+
+#dropdown ul.sub-menu li {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.5rem 0;
+}
+
+#dropdown nav li .submenu-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+#dropdown nav li.menu-item-has-children.active .submenu-toggle svg {
+  transform: rotate(-180deg);
+}
+
+/* Footer */
+footer h2 {
+  width: max-content;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+footer h2::after {
+  content: "";
+  background: var(--accent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 75%;
+}
+
+footer li {
+  margin-bottom: 0.5rem;
+}
+
+/* Pagination */
+.pagination {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pagination span {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-2);
+}
+
+/* Forms */
+.wpforms-container {
+  max-width: 500px;
+}
+
+.wpforms-container form input,
+.wpforms-container form textarea {
+  background-color: var(--base);
+  border: 1px solid #c8c8c8;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.wpforms-container form legend,
+.wpforms-container form label {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .content {
+    max-width: 90%;
+  }
+}
